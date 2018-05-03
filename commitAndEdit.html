@@ -90,13 +90,18 @@
 
         but[i].onclick = function () {
             var butCus = this.index.valueOf();
-            if (but[butCus].innerHTML == "编辑") {
+            if (but[butCus].innerHTML == "编辑") { // 判断当前按钮状态，
                 but[butCus].innerHTML = "确定";
                 inpt[butCus].disabled = ""; // 取消disabled 属性
+                inpt[butCus].focus(); // 获得焦点
             }else {
-                but[butCus].innerHTML = "编辑";
-                inpt[butCus].value =  inpt[butCus].value;
-                inpt[butCus].disabled = "disabled"; // 提交后，恢复disabled 属性
+                if (!inpt[butCus].value || !inpt[butCus].value.trim()) { // 判断输入内容是否为空，若为空提醒
+                    alert("请输入内容")
+                }else {
+                    but[butCus].innerHTML = "编辑";
+                    inpt[butCus].value = inpt[butCus].value;
+                    inpt[butCus].disabled = "disabled"; // 提交后，恢复disabled 属性
+                }
             }
         }
     }
