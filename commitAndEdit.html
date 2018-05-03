@@ -1,0 +1,108 @@
+<!doctype html>               <!--申明html文档-->
+<html>
+<head>
+    <meta charset="utf-8">      <!--字符编码为国际编码-->
+    <meta name="Author" content="40期风屿JS——不懂就问">    <!--网页创建者-->
+    <meta name="Keywords" content="作业，练习题">         <!--供搜索引擎搜索匹配的关键-->
+    <meta name="description" content="课后练习题作业，熟悉课堂学习操作">  <!--在搜索有结果页面显示的网页描述-->
+    <title>第11次作业-提交和编辑</title>   <!--网页标题-->
+    <!--
+          <link rel="stylesheet" type="text/css" href="css/common.css">
+          <link rel="stylesheet" type="text/css" href="css/index.css">
+          <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+          <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+          -->
+    <style>
+        body, p, ul, dl, dd, ol, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ul, ol {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0;
+        }
+
+        em, i {
+            font-style: normal; /*设置字体样式：正常显示（就是不倾斜）*/
+        }
+
+        strong, b {
+            font-weight: normal; /*设置字体加粗：正常显示（就是不加粗）*/
+        }
+
+        a {
+            text-decoration: none; /*去掉下划线*/
+        }
+        ul{
+            width: 500px;
+            margin: 80px auto;
+        }
+        li{
+            height:50px;
+            text-align: left;
+            line-height: 50px;
+            font-size: 18px;
+            background-color: burlywood;
+            border: 1px solid #ff9aa7;
+        }
+        input{
+            width: 300px;
+            height: 30px;
+        }
+        button{
+            width: 50px;
+            height: 30px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <input type="text" disabled>
+            <button type="button" >编辑</button>
+        </li>
+        <li>
+            <input type="text" disabled>
+            <button type="button" >编辑</button>
+        </li>
+        <li>
+            <input type="text" disabled>
+            <button type="button" >编辑</button>
+        </li>
+    </ul>
+
+
+<script>
+    var inpt = document.getElementsByTagName("input"),
+        but = document.getElementsByTagName("button"),
+        butLen = but.length;
+    for ( var i = 0; i < butLen; i++) {
+        but[i].index = i;
+
+        but[i].onclick = function () {
+            var butCus = this.index.valueOf();
+            if (but[butCus].innerHTML == "编辑") {
+                but[butCus].innerHTML = "确定";
+                inpt[butCus].disabled = ""; // 取消disabled 属性
+            }else {
+                but[butCus].innerHTML = "编辑";
+                inpt[butCus].value =  inpt[butCus].value;
+                inpt[butCus].disabled = "disabled"; // 提交后，恢复disabled 属性
+            }
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
